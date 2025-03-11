@@ -4,16 +4,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.math.BigDecimal;
-
-@Document(collection = "ACRC_PYMT_MATCH")
-public class AcrcPymtMatch {
+@Document(collection = "VIEW_ACRC_MATCHDOC")
+public class ViewAcrcMatchdoc {
 
     @Id
     private String id;
-
-    @Field("PYMT_NO")
-    private String pymtNo;
 
     @Field("MATCH_DOC")
     private String matchDoc;
@@ -21,11 +16,8 @@ public class AcrcPymtMatch {
     @Field("MATCH_TYPE")
     private String matchType;
 
-    @Field("MATCH_ADV_AMT")
-    private BigDecimal matchAdvAmt;
-
-    @Field("MATCH_AMT")
-    private BigDecimal matchAmt;
+    @Field("POL_NO")
+    private String polNo;
 
     @Field("PROD_TYPE")
     private String prodType;
@@ -36,14 +28,6 @@ public class AcrcPymtMatch {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPymtNo() {
-        return pymtNo;
-    }
-
-    public void setPymtNo(String pymtNo) {
-        this.pymtNo = pymtNo;
     }
 
     public String getMatchDoc() {
@@ -62,20 +46,12 @@ public class AcrcPymtMatch {
         this.matchType = matchType;
     }
 
-    public BigDecimal getMatchAdvAmt() {
-        return matchAdvAmt;
+    public String getPolNo() {
+        return polNo;
     }
 
-    public void setMatchAdvAmt(BigDecimal matchAdvAmt) {
-        this.matchAdvAmt = matchAdvAmt;
-    }
-
-    public BigDecimal getMatchAmt() {
-        return matchAmt;
-    }
-
-    public void setMatchAmt(BigDecimal matchAmt) {
-        this.matchAmt = matchAmt;
+    public void setPolNo(String polNo) {
+        this.polNo = polNo;
     }
 
     public String getProdType() {
