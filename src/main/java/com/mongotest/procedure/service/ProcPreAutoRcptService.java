@@ -27,7 +27,7 @@ public class ProcPreAutoRcptService {
         List<AcrcPymtUpload> cADV_PYMT = acrcPymtUploadRepository.findAdvPymtList();
         for (AcrcPymtUpload advPymt : cADV_PYMT) {
             vPYMT_NO = advPymt.getPymtNo();
-            dMAST_MATCH_ADV_AMT = advPymt.getMatchAdvAmt() == null ? BigDecimal.ZERO : advPymt.getMatchAdvAmt();
+            dMAST_MATCH_ADV_AMT = advPymt.getMatchAdvAmt()== null ? BigDecimal.ZERO : advPymt.getMatchAdvAmt();
             vFAILED_REMARKS = null;
             try {
                 dTOTAL_MATCH_ADV_AMT = acrcPymtMatchRepository.sumMatchAdvAmtByPymtNo(vPYMT_NO);
