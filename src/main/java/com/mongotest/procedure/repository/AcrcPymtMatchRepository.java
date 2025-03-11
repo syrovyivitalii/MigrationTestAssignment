@@ -3,6 +3,7 @@ package com.mongotest.procedure.repository;
 import com.mongotest.procedure.entity.AcrcPymtMatch;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -24,6 +25,9 @@ public interface AcrcPymtMatchRepository extends MongoRepository<AcrcPymtMatch, 
         }
         return BigDecimal.valueOf(r.get(0).getSum());
     }
+
+    @Query("{ 'PYMT_NO': ?0, 'MATCH_ADV_AMT': { $gt: ?1 } }")
+    List<AcrcPymtMatch> findByPymtNoAndMatchAdvAmtGreaterThan(String pymtNo, BigDecimal matchAdvAmt);
 
     class SumResult {
         private Double sum;
